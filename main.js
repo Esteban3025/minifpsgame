@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls.js";
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // ----- Basic scene
 const scene = new THREE.Scene();
@@ -15,27 +14,15 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 document.body.appendChild(renderer.domElement);
 
 const loader = new THREE.TextureLoader();
-const floor_texture = loader.load( './textures/floor/brown_mud_leaves_01_diff_4k.jpg' );
+const floor_texture = loader.load( '/textures/floor/brown_mud_leaves_01_diff_4k.jpg' );
 floor_texture.colorSpace = THREE.SRGBColorSpace;
 
 floor_texture.wrapS = THREE.MirroredRepeatWrapping;
 floor_texture.wrapT = THREE.MirroredRepeatWrapping;
 floor_texture.magFilter = THREE.NearestFilter;
 
-const wall_texture= loader.load( './textures/wall/stone_wall_04_diff_4k.jpg' );
+const wall_texture= loader.load( '/textures/wall/stone_wall_04_diff_4k.jpg' );
 wall_texture.colorSpace = THREE.SRGBColorSpace;
-
-const models_loader = new GLTFLoader();
-
-models_loader.load( './models/side_table_01_4k-glb', function ( gltf ) {
-
-  scene.add( gltf.scene );
-
-}, undefined, function ( error ) {
-
-  console.error( error );
-
-} );
 
 // ----- Lights
 const hemi = new THREE.HemisphereLight(0xbfd4ff, 0x223344, 0.6);

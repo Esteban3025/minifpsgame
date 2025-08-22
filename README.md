@@ -1,2 +1,4 @@
-This is a mini fps game.
-I make it because I was bored.
+# Mini FPS Game
+
+This is a small first-person shooter game made with Three.js.  
+I built it just for fun while experimenting — basically because I was bored.
